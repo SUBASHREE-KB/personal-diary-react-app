@@ -1,0 +1,300 @@
+/* src/Diary.css */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css');
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Quicksand', sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(210, 229, 249, 0.8) 100%);
+  z-index: -1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  border-radius: 15px !important;
+  transition: all 0.3s ease;
+  border: none !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+}
+
+.card-header {
+  border-radius: 15px 15px 0 0 !important;
+  padding: 1.5rem !important;
+}
+
+/* Gradient header for the main diary card */
+.card-header:first-of-type {
+  background: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%) !important;
+  color: white !important;
+}
+
+/* Gradient header for the entries card */
+.card-header:nth-of-type(2) {
+  background: linear-gradient(135deg, #43CBFF 0%, #9708CC 100%) !important;
+  color: white !important;
+}
+
+.form-control, .form-select {
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #FF6A88;
+  box-shadow: 0 0 0 0.25rem rgba(255, 106, 136, 0.25);
+  background-color: white;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+/* Button styling */
+.btn-primary {
+  background: linear-gradient(135deg, #FF6A88 0%, #FF99AC 100%);
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background: linear-gradient(135deg, #FF5177 0%, #FF8A9E 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(255, 106, 136, 0.4);
+}
+
+/* Entry styling */
+.entry-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.entry-item:last-child {
+  border-bottom: none;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.entry-header:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.mood-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.mood-indicator i {
+  font-size: 1.25rem;
+}
+
+.entry-header:hover .mood-indicator {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.entry-content {
+  display: none;
+  padding: 20px 25px;
+  background-color: rgba(248, 249, 250, 0.7);
+  line-height: 1.6;
+  border-radius: 0 0 15px 15px;
+}
+
+.entry-content.show {
+  display: block;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.entry-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-outline-secondary, .btn-outline-danger {
+  border-radius: 8px;
+  padding: 6px 12px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Empty state styling */
+.text-muted {
+  color: #6c757d !important;
+}
+
+.text-muted i {
+  opacity: 0.7;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.text-primary {
+  color: #3b5998 !important;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Custom styles for different moods */
+[data-mood="happy"] .mood-indicator {
+  background-color: #4caf50;
+}
+
+[data-mood="sad"] .mood-indicator {
+  background-color: #2196f3;
+}
+
+[data-mood="angry"] .mood-indicator {
+  background-color: #f44336;
+}
+
+[data-mood="calm"] .mood-indicator {
+  background-color: #9c27b0;
+}
+
+[data-mood="excited"] .mood-indicator {
+  background-color: #ff9800;
+}
+
+[data-mood="proud"] .mood-indicator {
+  background-color: #8e44ad;
+}
+
+[data-mood="glad"] .mood-indicator {
+  background-color: #e74c3c;
+}
+
+[data-mood="stressed"] .mood-indicator {
+  background-color: #f39c12;
+}
+
+[data-mood="anxious"] .mood-indicator {
+  background-color: #3498db;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-header {
+    padding: 1rem !important;
+  }
+  
+  .card-body {
+    padding: 1.25rem !important;
+  }
+  
+  .entry-header {
+    padding: 15px;
+  }
+  
+  .mood-indicator {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 106, 136, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 106, 136, 0.8);
+}
